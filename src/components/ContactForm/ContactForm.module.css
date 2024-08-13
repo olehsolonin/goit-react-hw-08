@@ -1,0 +1,28 @@
+.container {
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	border: 1px solid #ccc;
+	padding: 16px;
+	border-radius: 16px;
+}
+
+.Error {
+	color: red;
+}
+
+.field {
+	border: 1px solid black;
+	border-radius: 6px;
+	padding: 8px;
+}
+
+.btn {
+	color: whitesmoke;
+	background-color: green;
+	border-radius: 6px;
+	padding: 10px;
+}
