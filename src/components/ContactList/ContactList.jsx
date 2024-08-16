@@ -1,4 +1,3 @@
-// ContactList.js
 import { useSelector } from 'react-redux';
 import { selectFilteredContacts } from '../../redux/contacts/selectors';
 import Contact from '../Contact/Contact';
@@ -9,8 +8,8 @@ export default function ContactList() {
 
   return (
     <ul className={css.contactList}>
-      {filteredContacts.map(({ id, name, number }) => (
-        <Contact key={id} id={id} name={name} number={number} />
+      {filteredContacts.map((contact) => (
+        <Contact key={contact.id} data={contact} />
       ))}
     </ul>
   );

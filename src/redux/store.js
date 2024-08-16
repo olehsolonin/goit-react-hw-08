@@ -1,14 +1,22 @@
+// store.js
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './auth/authSlice';
-import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // Локальное хранилище
+import authReducer from './auth/authSlice'; // Ваш редуктор
 
-import contactsReducer from './contacts/contactsSlice';
-import filterReducer from './filters/filtersSlice';
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['auth'], // Данные, которые нужно сохранять
+};
 
-export const store = configureStore({
+const persistedReducer = persistReducer(persistConfig, authReducer);
+
+const store = configureStore({
   reducer: {
-    auth: authReducer,
-    contacts: contactsReducer,
-    filter: filterReducer,
+    auth: persistedReducer,
   },
 });
+
+export const persistor = persistStore(store);
+export default store;

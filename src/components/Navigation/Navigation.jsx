@@ -1,22 +1,16 @@
-// src/components/Navigation/Navigation.jsx
+import { NavLink } from 'react-router-dom';
 
-import React from 'react';
-import { NavLink } from 'react-router-dom'; // Используем NavLink для активных ссылок
-
-const Navigation = () => {
-  return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/" exact activeClassName="active">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/contacts" activeClassName="active">Contacts</NavLink>
-        </li>
-        {/* Добавьте другие ссылки по мере необходимости */}
-      </ul>
-    </nav>
-  );
-};
+const Navigation = () => (
+  <nav>
+    <ul>
+      <li>
+        <NavLink to="/" end>Home</NavLink> {/* end вместо exact */}
+      </li>
+      <li>
+        <NavLink to="/about">About</NavLink>
+      </li>
+    </ul>
+  </nav>
+);
 
 export default Navigation;

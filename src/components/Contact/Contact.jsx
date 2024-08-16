@@ -1,10 +1,8 @@
-import css from './Contact.module.css';
 import { IoPerson } from 'react-icons/io5';
 import { FaPhone } from 'react-icons/fa6';
+import css from './Contact.module.css';
 
 export default function Contact({ data, onDelete }) {
-  //   console.log(data.id);
-
   return (
     <div className={css.container}>
       <div className={css.wrap}>
