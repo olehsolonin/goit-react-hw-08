@@ -1,11 +1,11 @@
-import DocumentTitle from '../../components/DocumentTitle/DocumentTitle';
-import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import PageTitle from '../../components/PageTitle/PageTitle';
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 
 export default function RegisterPage() {
-  return (
-    <div>
-      <DocumentTitle>Registration</DocumentTitle>
-      <RegisterForm />
-    </div>
-  );
+    return (
+        <div>
+            <PageTitle>Register your account</PageTitle>
+            <RegistrationForm />
+        </div>
+    );
 }

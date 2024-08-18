@@ -20,43 +20,46 @@ export default function App() {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-      <div>Refreshing user, please wait...</div>
-  ) : (
-      <Layout>
-          <Suspense fallback={null}>
-              <Routes>
-                  <Route path="/" element={<HomePage />}>
-                      <Route
-                          path="/register"
-                          element={
-                              <RestrictedRoute
-                                  redirectTo="/contacts"
-                                  component={<RegistrationPage />}
-                              />
-                          }
-                      />
-                      <Route
-                          path="/login"
-                          element={
-                              <RestrictedRoute
-                                  redirectTo="/contacts"
-                                  component={<LoginPage />}
-                              />
-                          }
-                      />
-                      <Route
-                          path="contacts"
-                          element={
-                              <PrivateRoute
-                                  redirectTo="/login"
-                                  component={<ContactsPage />}
-                              />
-                          }
-                      />
-                  </Route>
-              </Routes>
-          </Suspense>
-      </Layout>
-  );
+return (
+    <div>
+        {isRefreshing ? (
+            <div>Refreshing user please wait...</div>
+        ) : (
+            <Layout>
+                <Suspense fallback={null}>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route
+                            path="/register"
+                            element={
+                                <RestrictedRoute
+                                    component={<RegistrationPage />}
+                                    redirectTo="/contacts"
+                                />
+                            }
+                        />
+                        <Route
+                            path="/login"
+                            element={
+                                <RestrictedRoute
+                                    component={<LoginPage />}
+                                    redirectTo="/contacts"
+                                />
+                            }
+                        />
+                        <Route
+                            path="/contacts"
+                            element={
+                                <PrivateRoute
+                                    component={<ContactsPage />}
+                                    redirectTo="/login"
+                                />
+                            }
+                        />
+                    </Routes>
+                </Suspense>
+            </Layout>
+        )}
+    </div>
+);
 }

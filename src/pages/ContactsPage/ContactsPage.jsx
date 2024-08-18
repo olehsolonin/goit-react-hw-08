@@ -1,11 +1,15 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import DocumentTitle from '../../components/DocumentTitle/DocumentTitle';
+import { useEffect } from 'react';
+import PageTitle from '../../components/PageTitle/PageTitle';
 import ContactList from '../../components/ContactList/ContactList';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import { fetchContacts } from '../../redux/contacts/operations';
 import {  selectLoading, selectError } from '../../redux/contacts/selectors';
+import Loader from '../../components/Loader/Loader';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+
+
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -18,11 +22,11 @@ export default function ContactsPage() {
 
   return (
     <div>
-      <DocumentTitle>Your contacts</DocumentTitle>
+      <PageTitle>Your contacts</PageTitle>
       <ContactForm />
       <SearchBox />
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {loading && <Loader/>}
+      {error && <ErrorMessage/>}
       {!loading && !error && <ContactList />}
     </div>
   );

@@ -1,11 +1,10 @@
-.filter {
-	width: 100%;
-	margin: 0 auto;
-	margin-bottom: 20px;
+.searchBoxContainer {
+display: flex;
+	max-width: 360px;
+	flex-direction: column;
+	margin-bottom: 10px;
 }
 
-.filterInput {
-	width: 100%;
-	border-radius: 6px;
-	padding: 10px;
+.searchBox {
+height: 50px;
 }
