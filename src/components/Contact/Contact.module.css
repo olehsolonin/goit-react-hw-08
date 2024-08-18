@@ -6,8 +6,9 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 100px;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	height: 100px;
+	width: 360px;
  }
 
  .wrap {

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectAllContacts } from '../../redux/contacts/selectors';
-import { selectNameFilter } from '../../redux/filters/slice';import Contact from '../Contact/Contact';
+import { selectNameFilter } from '../../redux/filters/filtersSlice';
+import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
 
 export default function ContactList() {
@@ -14,10 +15,12 @@ export default function ContactList() {
       );
   
   return (
-    <ul className={css.contactList}>
-      {filteredContacts.map((contact) => (
-        <Contact key={contact.id} data={contact} />
-      ))}
-    </ul>
+      <ul className={css.contactList}>
+          {filteredContacts.map(({ id, name, number }) => (
+              <li key={id} className={css.item}>
+                  <Contact id={id} name={name} number={number} />
+              </li>
+          ))}
+      </ul>
   );
 }

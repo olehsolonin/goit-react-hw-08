@@ -29,26 +29,40 @@ export default function ContactForm() {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ isSubmitting }) => (
-        <Form className={css.form}>
-          <div className={css.group}>
-            <label className={css.label}>Name</label>
-            <Field type="text" name="name" className={css.input} />
-            <ErrorMessage name="name" component="div" className={css.error} />
-          </div>
-          <div className={css.group}>
-            <label className={css.label}>Number</label>
-            <Field type="text" name="number" className={css.input} />
-            <ErrorMessage name="number" component="div" className={css.error} />
-          </div>
-          <button type="submit" disabled={isSubmitting}>Add Contact</button>
-        </Form>
-      )}
-    </Formik>
+      <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+      >
+          {({ isSubmitting }) => (
+              <Form className={css.container}>
+                  <div className={css.wrap}>
+                      <label className={css.label}>Name</label>
+                      <Field type="text" name="name" className={css.field} />
+                      <ErrorMessage
+                          name="name"
+                          component="div"
+                          className={css.Error}
+                      />
+                  </div>
+                  <div className={css.wrap}>
+                      <label className={css.label}>Number</label>
+                      <Field type="text" name="number" className={css.field} />
+                      <ErrorMessage
+                          name="number"
+                          component="div"
+                          className={css.Error}
+                      />
+                  </div>
+                  <button
+                      className={css.btn}
+                      type="submit"
+                      disabled={isSubmitting}
+                  >
+                      Add Contact
+                  </button>
+              </Form>
+          )}
+      </Formik>
   );
 }
